@@ -396,7 +396,6 @@ GameObject:
   - component: {fileID: 1771221928}
   - component: {fileID: 1771221929}
   - component: {fileID: 1771221930}
-  - component: {fileID: 1771221931}
   m_Layer: 0
   m_Name: Spaceship2
   m_TagString: Untagged
@@ -515,26 +514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385371c0b4dde4641a04f64e41541860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pawn
-  moveSpeed: 1
-  turnSpeed: 1
-  turboSpeed: 2
-  teleportSpeed: 0
---- !u!114 &1771221931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771221925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ab8b574c7647e4fb704796f8db1d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RandomPosition
-  randomXPositionMin: 0
-  randomXPositionMax: 0
-  randomYPositionMin: 0
-  randomYPositionMax: 0
+  moveSpeed: 10
+  turnSpeed: 180
+  turboSpeed: 20
+  teleportSpeed: 1
 --- !u!1 &2085716727
 GameObject:
   m_ObjectHideFlags: 0
