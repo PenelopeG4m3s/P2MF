@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed;
     public float turnSpeed;
     public float turboSpeed;
     public float teleportSpeed;
+    [Header("Components")]
+    public Health health;
+    public Death death;
+    public Shooter shooter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Load the health component from this object
+        health = GetComponent<Health>();
+        // Load the death component from this object
+        death = GetComponent<Death>();
+        // Load the shooterbullet component from this object
+        shooter = GetComponent<Shooter>();
     }
 
     // Update is called once per frame
@@ -59,5 +69,19 @@ public class Pawn : MonoBehaviour
     public void TeleportRight (float teleportSpeed)
     {
         transform.position = transform.position + ( Vector3.right * teleportSpeed * Time.deltaTime );
+    }
+
+    public void Teleport ()
+    {
+        GameObject teleporter = GameObject.Find("Teleporter");
+        transform.position = teleporter.transform.position;
+    }
+
+    public void ShootBullet ()
+    {
+        if ( shooter != null )
+        {
+            shooter.Shoot();
+        }
     }
 }

@@ -3,7 +3,9 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     public Pawn pawn;
+    public GameObject teleporter;
     private float mainSpeed;
+    public KeyCode fire;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -75,6 +77,18 @@ public class Controller : MonoBehaviour
         {
             /// TODO: Tell Pawn to Teleport Right
             pawn.TeleportRight( pawn.teleportSpeed );
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // TODO: Tell Pawn to Teleport to Teleporter
+            pawn.Teleport();
+        }
+
+        if (Input.GetKeyDown(fire))
+        {
+            // TODO: Tell Pawn to fire a bullet
+            pawn.ShootBullet();
         }
     }
 }
