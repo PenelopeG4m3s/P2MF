@@ -193,5 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageOnOverlap
   damageDone: 0
-  instantKill: 1
+  instantKill: 0
   immuneObject: {fileID: 3321721791881395840, guid: 606c4f2b905f1d34fbf7ea6c6e6b63d2, type: 3}
+  isObstacle: 0

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public float score;
     public int damageZones;
     public bool isAlive;
+    [Header("Timer")]
+    public float timeRemaining;
+    public float maxTime;
 
     void Awake()
     {
@@ -27,7 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Set the timer to max time
+        timeRemaining = maxTime;
     }
 
     // Update is called once per frame
@@ -42,6 +46,11 @@ public class GameManager : MonoBehaviour
         {
             Defeat();
         }
+    }
+
+    public void ResetTimer()
+    {
+        timeRemaining = maxTime;
     }
 
     void Victory()
