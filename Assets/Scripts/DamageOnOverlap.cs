@@ -7,6 +7,8 @@ public class DamageOnOverlap : MonoBehaviour
     public bool instantKill;
     public GameObject immuneObject;
     public bool isObstacle;
+    public AudioSource myAudioSource;
+    public AudioClip impact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +39,7 @@ public class DamageOnOverlap : MonoBehaviour
         {
             if ( other.gameObject == null || other.gameObject != immuneObject )
             {
+                myAudioSource.PlayOneShot(impact, 1.0F);
                 Health otherHealth = other.gameObject.GetComponent<Health>();
                 if ( otherHealth != null && otherHealth.enabled)
                 {
@@ -54,6 +57,7 @@ public class DamageOnOverlap : MonoBehaviour
         {
             if ( other.gameObject == null || other.gameObject != immuneObject )
             {
+                myAudioSource.PlayOneShot(impact, 1.0F);
                 Death death = other.gameObject.GetComponent<Death>();
                 if ( death != null && death.enabled)
                 {

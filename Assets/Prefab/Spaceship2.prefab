@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7896926530034033952}
   - component: {fileID: 4443870010643526162}
   - component: {fileID: 3822337264772507801}
+  - component: {fileID: 4010175553553565688}
   m_Layer: 0
   m_Name: Spaceship2
   m_TagString: Untagged
@@ -116,6 +117,7 @@ MonoBehaviour:
   teleportSpeed: 0
   health: {fileID: 0}
   death: {fileID: 0}
+  shooter: {fileID: 0}
 --- !u!114 &7552446891784475886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +244,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.4, y: 6.4}
   m_EdgeRadius: 0
+--- !u!81 &4010175553553565688
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3321721791881395840}
+  m_Enabled: 1

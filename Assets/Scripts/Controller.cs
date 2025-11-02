@@ -6,6 +6,8 @@ public class Controller : MonoBehaviour
     public GameObject teleporter;
     private float mainSpeed;
     public KeyCode fire;
+    public AudioSource myAudioSource;
+    public AudioClip impact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -89,6 +91,8 @@ public class Controller : MonoBehaviour
         {
             // TODO: Tell Pawn to fire a bullet
             pawn.ShootBullet();
+            // Play Audio of bullet
+            myAudioSource.PlayOneShot(impact, 1.0F);
         }
     }
 }

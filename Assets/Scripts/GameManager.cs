@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(damageZones);
+        // Debug.Log(damageZones);
         if ( damageZones == 0.0f )
         {
             Victory();

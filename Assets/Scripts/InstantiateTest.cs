@@ -5,6 +5,9 @@ public class InstantiateTest : MonoBehaviour
     public GameObject prefabToCopy;
     public Controller controllerToConnect;
 
+    public AudioSource myAudioSource;
+    public AudioClip newAudioCLip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

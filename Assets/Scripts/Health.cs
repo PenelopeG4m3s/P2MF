@@ -4,11 +4,13 @@ public class Health : MonoBehaviour
 {
     public float currentHealth;
     public float maxHealth;
+    public AudioSource myAudioSource;
+    public AudioClip impact;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class Health : MonoBehaviour
     {
         // currentHealth = currentHealth - amount;
         currentHealth -= amount;
+        myAudioSource.PlayOneShot(impact, 1.0F);
         if ( !IsAlive() )
         {
             currentHealth = 0;
