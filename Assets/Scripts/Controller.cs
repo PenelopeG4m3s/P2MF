@@ -4,7 +4,7 @@ public class Controller : MonoBehaviour
 {
     public Pawn pawn;
     public Menu menu;
-    public GameObject teleporter;
+    //public GameObject teleporter;
     private float mainSpeed;
     public KeyCode fire;
     public AudioSource myAudioSource;
@@ -91,7 +91,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             // TODO: Tell Pawn to Teleport to Teleporter
-            pawn.Teleport();
+            //pawn.Teleport();
         }
 
         if (Input.GetKeyDown(fire))

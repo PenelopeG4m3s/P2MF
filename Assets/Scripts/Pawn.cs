@@ -73,8 +73,8 @@ public class Pawn : MonoBehaviour
 
     public void Teleport ()
     {
-        GameObject teleporter = GameObject.Find("Teleporter");
-        transform.position = teleporter.transform.position;
+        //GameObject teleporter = GameObject.Find("Teleporter");
+        //transform.position = teleporter.transform.position;
     }
 
     public void ShootBullet ()
