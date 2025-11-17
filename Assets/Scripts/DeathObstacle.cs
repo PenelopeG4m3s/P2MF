@@ -8,6 +8,8 @@ public class DeathObstacle : Death
     {
         // Destroy the game object
         Destroy(gameObject);
+        // gameObject.SetActive(false);
+        GameManager.gameManager.damageZones -= 1;
         GameManager.gameManager.score += scoreAddition;
     }
 }

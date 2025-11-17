@@ -125,13 +125,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3321721791881395840}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8c088fd866b86642a5e1d5c9101269c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 10
+  maxHealth: 10
+  myAudioSource: {fileID: 0}
+  impact: {fileID: 0}
 --- !u!114 &1078680940164699444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3321721791881395840}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f220ad301b65c1419df9ffe97ab62dd, type: 3}
   m_Name: 

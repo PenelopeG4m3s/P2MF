@@ -6,11 +6,12 @@ public class ObstacleHealthUI : MonoBehaviour
 {
     public Image healthImage;
     public GameObject obstacle;
+    RectTransform m_RectTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        m_RectTransform = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -29,5 +30,7 @@ public class ObstacleHealthUI : MonoBehaviour
         } else {
             healthImage.fillAmount = 0;
         }
+        m_RectTransform.anchoredPosition = new Vector2(obstacle.transform.position.x, obstacle.transform.position.y);
+        //healthImage.anchoredPosition = new Vector3(obstacle.transform.position.x,obstacle.transform.position.y,0.0f);
     }
 }

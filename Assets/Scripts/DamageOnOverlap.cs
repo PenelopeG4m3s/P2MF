@@ -9,13 +9,16 @@ public class DamageOnOverlap : MonoBehaviour
     public bool isObstacle;
     public AudioSource myAudioSource;
     public AudioClip impact;
+    // public GameObject spaceship;
+    public bool destroyOnOverlap;
+    public GameObject HealthUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if ( !isObstacle )
         {
-            GameManager.gameManager.damageZones += 1;
+            // GameManager.gameManager.damageZones += 1;
         }
     }
 
@@ -29,45 +32,57 @@ public class DamageOnOverlap : MonoBehaviour
     {
         if ( !isObstacle )
         {
-            GameManager.gameManager.damageZones -= 1;
+            // GameManager.gameManager.damageZones -= 1;
+        }
+        if ( isObstacle && HealthUI != null)
+        {
+            Destroy(HealthUI);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ( !instantKill )
+        // check to make sure that both objects aren't obstacles
+        if ( !isObstacle || !other.gameObject.GetComponent<DamageOnOverlap>().isObstacle )
         {
-            if ( other.gameObject == null || other.gameObject != immuneObject )
+            if ( !instantKill )
             {
-                myAudioSource.PlayOneShot(impact, 1.0F);
-                Health otherHealth = other.gameObject.GetComponent<Health>();
-                if ( otherHealth != null && otherHealth.enabled)
+                if ( other.gameObject == null || other.gameObject != immuneObject )
                 {
-                    Debug.Log("The collision trigger has been triggered, no instant kill, did damage to other object.");
-                    Debug.Log(otherHealth);
-                    otherHealth.TakeDamage(damageDone);
-                }
-                else
-                {
-                    Debug.Log("Health error prevention works");
+                    myAudioSource.PlayOneShot(impact, 1.0F);
+                    Health otherHealth = other.gameObject.GetComponent<Health>();
+                    if ( otherHealth != null && otherHealth.enabled)
+                    {
+                        Debug.Log("The collision trigger has been triggered, no instant kill, did damage to other object.");
+                        Debug.Log(otherHealth);
+                        otherHealth.TakeDamage(damageDone);
+                    }
+                    else
+                    {
+                        Debug.Log("Health error prevention works");
+                    }
                 }
             }
-        }
-        else
-        {
-            if ( other.gameObject == null || other.gameObject != immuneObject )
+            else
             {
-                myAudioSource.PlayOneShot(impact, 1.0F);
-                Death death = other.gameObject.GetComponent<Death>();
-                if ( death != null && death.enabled)
+                if ( other.gameObject == null || other.gameObject != immuneObject )
                 {
-                    Debug.Log( "death exists" + death );
-                    death.Die();
+                    myAudioSource.PlayOneShot(impact, 1.0F);
+                    Death death = other.gameObject.GetComponent<Death>();
+                    if ( death != null && death.enabled)
+                    {
+                        Debug.Log( "death exists" + death );
+                        death.Die();
+                    }
+                    else
+                    {
+                        Debug.Log( "death does not exists" );
+                    }
                 }
-                else
-                {
-                    Debug.Log( "death does not exists" );
-                }
+            }
+            if ( destroyOnOverlap && other.gameObject != null && other.gameObject != immuneObject )
+            {
+                Destroy(gameObject);
             }
         }
     }

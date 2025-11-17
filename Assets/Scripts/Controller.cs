@@ -3,6 +3,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     public Pawn pawn;
+    public Menu menu;
     public GameObject teleporter;
     private float mainSpeed;
     public KeyCode fire;
@@ -27,11 +28,17 @@ public class Controller : MonoBehaviour
             mainSpeed = pawn.moveSpeed;
         }
 
-        /// Based on inputs, send commands to pawn
-        MakeDescisions();
+        // Check current game state
+        if ( GameManager.gameManager.gameState == "game" ) {
+            // Based on inputs, send commands to pawn
+            MakeDescisions();
+        }
+        if ( GameManager.gameManager.gameState == "menu" ) {
+            MakeMenuDescisions();
+        }
     }
 
-    private void MakeDescisions( )
+    private void MakeDescisions()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -93,6 +100,24 @@ public class Controller : MonoBehaviour
             pawn.ShootBullet();
             // Play Audio of bullet
             myAudioSource.PlayOneShot(impact, 1.0F);
+        }
+    }
+
+    private void MakeMenuDescisions()
+    {
+        // Up
+        if (Input.GetKeyDown(KeyCode.W)){
+            menu.SelectUp();
+        }
+
+        // Down
+        if (Input.GetKeyDown(KeyCode.S)){
+            menu.SelectDown();
+        }
+
+        // Accept  
+        if (Input.GetKeyDown(KeyCode.Space)){
+            menu.Accept();
         }
     }
 }
