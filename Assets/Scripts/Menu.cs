@@ -120,7 +120,7 @@ public class Menu : MonoBehaviour
                 buttonSettingsSelect[2] = false;
                 buttonSettingsSelect[button] = true;
                 buttonSettingsText[0] = "  Fullscreen  ";
-                buttonSettingsText[1] = "  Filler  ";
+                buttonSettingsText[1] = "  VSync  ";
                 buttonSettingsText[2] = "  Back  ";
                 buttonSettingsText[button] = "> " + buttonSettingsText[button] + " <";
             }
