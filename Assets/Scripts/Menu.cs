@@ -247,10 +247,20 @@ public class Menu : MonoBehaviour
             switch (button){
                 // Fullscreen
                 case 0:
+                    Screen.fullScreen = !Screen.fullScreen;
                     check = false;
                 break;
-                // Filler
+                // VSync
                 case 1:
+                    if ( QualitySettings.vSyncCount == 1 ){
+                        QualitySettings.vSyncCount = 2;
+                    }
+                    if (QualitySettings.vSyncCount == 0){
+                        QualitySettings.vSyncCount = 2;
+                    }
+                    if (QualitySettings.vSyncCount == 2){
+                        QualitySettings.vSyncCount = 0;
+                    }
                     check = false;
                 break;
                 // Back
