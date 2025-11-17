@@ -12,6 +12,7 @@ public class DamageOnOverlap : MonoBehaviour
     // public GameObject spaceship;
     public bool destroyOnOverlap;
     public GameObject HealthUI;
+    bool check;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,6 @@ public class DamageOnOverlap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnDestroy()
@@ -42,8 +42,17 @@ public class DamageOnOverlap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Begin Debug");
+        Debug.Log(this+" collided into "+other.gameObject);
+        DamageOnOverlap otherObstacle = other.gameObject.GetComponent<DamageOnOverlap>();
+        if (otherObstacle == null){
+            Debug.Log("Other object does not have a damage on overlap component");
+            check = false;
+        } else {
+            check = otherObstacle.isObstacle;
+        }
         // check to make sure that both objects aren't obstacles
-        if ( !isObstacle || !other.gameObject.GetComponent<DamageOnOverlap>().isObstacle )
+        if ( !isObstacle || !check )
         {
             if ( !instantKill )
             {
@@ -65,6 +74,7 @@ public class DamageOnOverlap : MonoBehaviour
             }
             else
             {
+                Debug.Log("Other: "+other.gameObject);
                 if ( other.gameObject == null || other.gameObject != immuneObject )
                 {
                     myAudioSource.PlayOneShot(impact, 1.0F);
